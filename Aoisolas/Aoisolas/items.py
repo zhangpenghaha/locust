@@ -8,7 +8,8 @@
 import scrapy
 
 
-class MingyanItem(scrapy.Item):
+class AoisolasItem(scrapy.Item):
     # define the fields for your item here like:
     # name = scrapy.Field()
-    pass
+    name = scrapy.Field()
+    ImgUrl = scrapy.Field()

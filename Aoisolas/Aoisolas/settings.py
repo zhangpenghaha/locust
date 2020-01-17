@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Scrapy settings for mingyan project
+# Scrapy settings for Aoisolas project
 #
 # For simplicity, this file contains only settings considered important or
 # commonly used. You can find more settings consulting the documentation:
@@ -9,17 +9,17 @@
 #     https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 
-BOT_NAME = 'mingyan'
+BOT_NAME = 'Aoisolas'
 
-SPIDER_MODULES = ['mingyan.spiders']
-NEWSPIDER_MODULE = 'mingyan.spiders'
-
+SPIDER_MODULES = ['Aoisolas.spiders']
+NEWSPIDER_MODULE = 'Aoisolas.spiders'
+HTTPERROR_ALLOWED_CODES = [404]
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-#USER_AGENT = 'mingyan (+http://www.yourdomain.com)'
+#USER_AGENT = 'Aoisolas (+http://www.yourdomain.com)'
 
 # Obey robots.txt rules
-ROBOTSTXT_OBEY = True
+ROBOTSTXT_OBEY = False
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32
@@ -47,13 +47,13 @@ ROBOTSTXT_OBEY = True
 # Enable or disable spider middlewares
 # See https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 #SPIDER_MIDDLEWARES = {
-#    'mingyan.middlewares.MingyanSpiderMiddleware': 543,
+#    'Aoisolas.middlewares.AoisolasSpiderMiddleware': 543,
 #}
 
 # Enable or disable downloader middlewares
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #DOWNLOADER_MIDDLEWARES = {
-#    'mingyan.middlewares.MingyanDownloaderMiddleware': 543,
+#    'Aoisolas.middlewares.AoisolasDownloaderMiddleware': 543,
 #}
 
 # Enable or disable extensions
@@ -65,7 +65,7 @@ ROBOTSTXT_OBEY = True
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 #ITEM_PIPELINES = {
-#    'mingyan.pipelines.MingyanPipeline': 300,
+#    'Aoisolas.pipelines.AoisolasPipeline': 300,
 #}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
@@ -88,3 +88,12 @@ ROBOTSTXT_OBEY = True
 #HTTPCACHE_DIR = 'httpcache'
 #HTTPCACHE_IGNORE_HTTP_CODES = []
 #HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
+# 设置图片存储路径
+IMAGES_STORE = 'D:\meizi2'
+#启动pipeline中间件
+ITEM_PIPELINES = {
+   'Aoisolas.pipelines.MyImagesPipeline': 300,
+}
+DOWNLOADER_MIDDLEWARES = {
+   'Aoisolas.middlewares.AoisolasSpiderMiddleware': 1,
+}
